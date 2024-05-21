@@ -2,7 +2,7 @@
 
 ## IDEA (Interactive Differential Expression Analysis) for CSE 185 Final Project
 
-Gavin Simmons [gasimmons](mailto:gasimmons@ucsd.edu), Leo Joseph [l1joseph@ucsd.edu](mailto:l1joseph@ucsd.edu), Gayathri Donepudi [gdonepudi@ucsd.edu](mailto:gdonepudi@ucsd.edu)
+Gavin Simmons [gasimmons@ucsd.edu](mailto:gasimmons@ucsd.edu), Leo Joseph [l1joseph@ucsd.edu](mailto:l1joseph@ucsd.edu), Gayathri Donepudi [gdonepudi@ucsd.edu](mailto:gdonepudi@ucsd.edu)
 
 ## Project Description
 
