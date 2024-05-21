@@ -1,5 +1,7 @@
 # IDEA
+
 ## IDEA (Interactive Differential Expression Analysis) for CSE 185 Final Project
+
 Gavin Simmons [gasimmons](mailto:gasimmons@ucsd.edu), Leo Joseph [l1joseph@ucsd.edu](mailto:l1joseph@ucsd.edu), Gayathri Donepudi [gdonepudi@ucsd.edu](mailto:gdonepudi@ucsd.edu)
 
 # Interactive Differential Expression Analysis (IDEA)
@@ -22,10 +24,11 @@ pip install idea
 ```
 
 IDEA requires the following dependencies:
+
 - NumPy
 - Pandas
 - SciPy
-- (CONTINUE AS WE ADD MORE REQS
+- (CONTINUE AS WE ADD MORE REQS)
 
 These dependencies will be automatically installed when you install IDEA using pip.
 
@@ -34,16 +37,19 @@ These dependencies will be automatically installed when you install IDEA using p
 To use IDEA, follow these steps:
 
 1. Import the IDEA package in your Python script:
+
    ```python
    import idea
    ```
 
 2. Load your gene expression data into a Pandas DataFrame:
+
    ```python
    data = idea.load_data('expression_data.tsv')
    ```
 
 3. Perform differential expression analysis:
+
    ```python
    results = idea.differential_expression(data, group1, group2)
    ```
@@ -77,6 +83,7 @@ We welcome contributions to IDEA! If you would like to contribute, please follow
 For more detailed information, please refer to our [Contributing Guide](CONTRIBUTING.md).
 
 ## License
+
 (I HAVEN'T SET A LICENSE FOR THIS WHEN I INIT THE REPO, DON'T KNOW IF WE HAVE TO)
 IDEA is distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
@@ -91,6 +98,7 @@ If you have any questions, suggestions, or issues, please feel free to contact u
 You can also open an issue on the project's GitHub repository.
 
 ## Acknowledgements
+
 (ADD ACKNOWLEDGEMENTS HERE)
 
 ## Future Plans
