@@ -4,10 +4,6 @@
 
 Gavin Simmons [gasimmons](mailto:gasimmons@ucsd.edu), Leo Joseph [l1joseph@ucsd.edu](mailto:l1joseph@ucsd.edu), Gayathri Donepudi [gdonepudi@ucsd.edu](mailto:gdonepudi@ucsd.edu)
 
-# Interactive Differential Expression Analysis (IDEA)
-
-Gavin Simmons (A17093287), Leo Joseph (A17361535), Gayathri Donepudi (A16956455)
-
 ## Project Description
 
 IDEA (Interactive Differential Expression Analysis) is a Python package designed for performing differential expression analysis on gene expression data. The goal of IDEA is to provide researchers with a user-friendly and efficient tool to identify differentially expressed genes between different conditions or groups.
