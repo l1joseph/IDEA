@@ -30,11 +30,15 @@ for i, file in enumerate(files):
         # Otherwise, merge the new DataFrame with df_final
         df_final = pd.merge(df_final, df, on="gene_id", how="outer")
 
-# Write the final DataFrame to a CSV file
-df_final.to_csv("merged_file.csv", index=False)
 
-# I believe this has the same data as the dds from the lab, just as a csv, not sure what txi is necessary for, if someone could figure that part out.
 
-# Have to include filtering out low counts
+# Filter rows based on the sum of values, excluding the 'gene_id' column
+numeric_cols = df_final.columns[1:]  # All columns except 'gene_id'
+df_final[numeric_cols] = df_final[numeric_cols].apply(pd.to_numeric, errors='coerce')
+min_sum = 10  # Replace with your desired minimum sum
+filtered_df = df_final.loc[df_final[numeric_cols].sum(axis=1) >= min_sum, :]
 
-#Final part is actually implementing deseq, need to get out "gene_id""baseMean","log2FoldChange","lfcSE","stat","pvalue","padj" from the dds
+# Write the filtered DataFrame to a new file
+filtered_df.to_csv("filtered_merged_file.csv", index=False)
+
+#Final part is actually implementing deseq, need to get out "gene_id""baseMean","log2FoldChange","lfcSE","stat","pvalue","padj" from the csv
