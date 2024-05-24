@@ -16,6 +16,7 @@ To install IDEA, you need to have Python 3.11 installed on your system. You can 
 
 ```
 pip install idea
+pip install git+https://github.com/l1joseph/IDEA.git
 # or whatever we go with
 ```
 
