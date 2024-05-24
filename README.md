@@ -48,22 +48,42 @@ To use IDEA, follow these steps:
    import idea
    ```
 
-2. Load your gene expression data into a Pandas DataFrame:
+2. Load your gene expression data into an IDEADataSet object:
 
    ```python
-   data = idea.load_data('expression_data.tsv')
+   data = IDEADataSet(counts, sample_info)
+   ```
+3. Convert data into an AnnData object:
+
+   ```python
+   adata = data.to_anndata()
+   ```
+4. Normalize data:
+
+   ```python
+   size_factors(adata)
+   normalize_counts(adata)
+   ```
+5. Estimate dispersions:
+
+   ```python
+   estimate_dispersions(adata)
+   fit_dispersion_trend(adata)
+   shrink_dispersions(adata)
    ```
 
-3. Perform differential expression analysis:
+6. Perform differential expression analysis:
 
    ```python
-   results = idea.differential_expression(data, group1, group2)
+   contrast = ('condition', 'A', 'B')
+   results = idea(adata, contrast)
    ```
 
-4. Explore the results and visualize the differentially expressed genes:
+7. Explore the results and visualize the differentially expressed genes:
    ```python
-   idea.plot_volcano(results)
-   idea.plot_heatmap(results)
+   idea_results = results.get_results()
+   plotVolcano(idea_results, contrast[1], contrast[2])
+   plotHeatmap(idea_results, adata)
    ```
 
 For more detailed usage examples and documentation, please refer to the [IDEA Documentation](https://idea.readthedocs.io/).
