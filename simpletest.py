@@ -4,6 +4,7 @@ from dataset import DESeqDataSet
 from normalization import size_factors, normalize_counts
 from dispersion import estimate_dispersions, dispersion_trend, fit_dispersion_trend, shrink_dispersions
 from differential_expression import deseq
+from utilities import plotVolcano, plotHeatmap
 
 def main():
     # Sample data
