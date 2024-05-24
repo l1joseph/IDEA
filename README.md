@@ -15,7 +15,9 @@ IDEA aims to be a Python equivalent to the widely used DESeq2 tool, offering sim
 To install IDEA, you need to have Python 3.11 installed on your system. You can install IDEA using pip:
 
 ```
-pip install idea
+#implement this after we finalize package details
+# pip install idea
+
 pip install git+https://github.com/l1joseph/IDEA.git
 # or whatever we go with
 ```
