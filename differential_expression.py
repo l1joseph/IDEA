@@ -3,6 +3,15 @@ import numpy as np
 import statsmodels.api as sm
 from scipy.stats import rankdata
 
+class DESeqResults:
+    def __init__(self, dds, contrast):
+        self.dds = dds
+        self.contrast = contrast
+        self.results = None
+    
+    def get_results(self):
+        return self.results
+        
 def deseq(dds, contrast):
     """
     Perform differential expression analysis.
