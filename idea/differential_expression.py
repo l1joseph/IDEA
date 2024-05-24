@@ -12,7 +12,7 @@ class IDEAResults:
     def get_results(self):
         return self.results
         
-def deseq(dds, contrast):
+def runidea(dds, contrast):
     """
     Perform differential expression analysis.
 
@@ -21,7 +21,7 @@ def deseq(dds, contrast):
     contrast (tuple): A tuple specifying the contrast for differential expression (e.g., ('condition', 'A', 'B')).
 
     Returns:
-    DESeqResults: Object containing the results of the differential expression analysis.
+    IDEAResults: Object containing the results of the differential expression analysis.
     """
     # Extract counts and metadata
     counts = dds.layers['normalized']
@@ -37,42 +37,39 @@ def deseq(dds, contrast):
     print(f"Expected levels: {level1}, {level2}")
 
     # Create design matrix
-    design_matrix = pd.get_dummies(phenotype_data[condition], drop_first=False)
+    design_matrix = pd.get_dummies(phenotype_data[condition], drop_first=True)
     print("Design matrix:")
     print(design_matrix.head())
 
-    # Check if contrast levels are present in design matrix
-    if level1 not in design_matrix.columns or level2 not in design_matrix.columns:
-        raise ValueError(f"Contrast levels {level1} and {level2} not found in phenotype data.")
+    # # Ensure both levels are present in the design matrix
+    # design_matrix[condition] = pd.Categorical(phenotype_data[condition], categories=[level1, level2])
+    # design_matrix = pd.get_dummies(design_matrix[condition], drop_first=True)
+    # print("Adjusted design matrix:")
+    # print(design_matrix.head())
 
-    # Recode contrast levels to 0 and 1 for analysis
-    design_matrix = design_matrix[[level1, level2]].astype(int)
-    design_matrix.columns = [level1, level2]
-    print("Recoded design matrix:")
-    print(design_matrix.head())
-
-    # Fit the model for each gene
+    # Fit the model for each gene using negative binomial regression
     results = []
     for i, gene in enumerate(genes):
         y = counts[:, i]
-        model = sm.OLS(y, design_matrix).fit()
+        model = sm.GLM(y, design_matrix, family=sm.families.NegativeBinomial()).fit()
         summary = model.summary2().tables[1]
         log2_fold_change = summary.loc[level2, 'Coef.']
-        p_value = summary.loc[level2, 'P>|t|']
+        p_value = summary.loc[level2, 'P>|z|']
         results.append({
             'gene': gene,
             'log2_fold_change': log2_fold_change,
             'p_value': p_value
         })
 
+
     results_df = pd.DataFrame(results)
     results_df['padj'] = adjust_pvalues(results_df['p_value'])
 
-    # Create DESeqResults object
-    deseq_results = DESeqResults(dds, contrast)
-    deseq_results.results = results_df
+    # Create IDEAResults object
+    idea_results = IDEAResults(dds, contrast)
+    idea_results.results = results_df
 
-    return deseq_results
+    return idea_results
 
 def adjust_pvalues(pvalues):
     """
