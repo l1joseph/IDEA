@@ -17,7 +17,7 @@ def plotVolcano(res):
     
     plt.xlabel('Log2 Fold Change')
     plt.ylabel('-Log10(p-value)')
-    plt.title('Volcano Plot')
+    plt.title(f'Volcano Plot: {condition1} vs {condition2}')
     plt.show()
 
 def plotHeatmap(res, adata, top_n=10):
