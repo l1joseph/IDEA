@@ -3,6 +3,7 @@ import anndata as ad
 from dataset import DESeqDataSet
 from normalization import size_factors, normalize_counts
 from dispersion import estimate_dispersions, dispersion_trend, fit_dispersion_trend, shrink_dispersions
+from differential_expression import deseq
 
 def main():
     # Sample data
@@ -44,6 +45,15 @@ def main():
     print("Raw Dispersions:\n", adata.var['dispersion'])
     print("Fitted Dispersions:\n", adata.var['fitted_dispersion'])
     print("Shrunken Dispersions:\n", adata.var['shrunken_dispersion'])
+
+    # Perform differential expression analysis
+    contrast = ('condition', 'A', 'B')
+    print("Performing differential expression analysis...")
+    results = deseq(adata, contrast)
+
+    # Print results
+    print("Differential expression analysis results:")
+    print(results.get_results())
 
 if __name__ == "__main__":
     main()
