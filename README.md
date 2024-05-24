@@ -19,6 +19,13 @@ pip install idea
 # or whatever we go with
 ```
 
+To run the example notebooks as well as development of this package, you will need a conda environment specific to IDEA. We have prodived a yaml file with all the necessary dependencies installed. Run the below commands to activate it.
+
+```
+conda env create -f IDEA.yaml
+conda activate IDEA
+```
+
 IDEA requires the following dependencies:
 
 - NumPy
