@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import anndata as ad
 
-class DESeqDataSet:
+class IDEADataSet:
     def __init__(self, counts, sample_info):
         self.counts = counts
         self.sample_info = sample_info

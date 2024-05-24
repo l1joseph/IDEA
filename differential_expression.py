@@ -3,7 +3,7 @@ import numpy as np
 import statsmodels.api as sm
 from scipy.stats import rankdata
 
-class DESeqResults:
+class IDEAResults:
     def __init__(self, dds, contrast):
         self.dds = dds
         self.contrast = contrast
