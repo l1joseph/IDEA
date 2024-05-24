@@ -1,19 +1,19 @@
+import sys
 import pandas as pd
 
+# Get the file paths from the command line arguments
+files = sys.argv[1:]
 
-files = ["../public/lab4/Chow_Rep1.genes.results",
-         "../public/lab4/Chow_Rep2.genes.results",
-         "../public/lab4/Chow_Rep3.genes.results",
-         "../public/lab4/HFD_Rep1.genes.results",
-         "../public/lab4/HFD_Rep2.genes.results",
-         "../public/lab4/HFD_Rep3.genes.results"]
+# Split the file paths into conditions and replicates
+conditions = []
+replicates = []
+for file_path in files:
+    condition, replicate = file_path.split("/")[-1].split("_")
+    conditions.append(condition)
+    replicates.append(replicate[:-13])  # Remove ".genes.results" from the replicate
 
-conditions = ["Chow"] * 3 + ["HFD"] * 3
-
-samples = pd.DataFrame({"run": [f.split("/")[-1] for f in files],
-                        "condition": conditions},
-                       index=[f.split("/")[-1] for f in files])
-
+# Create a DataFrame with the conditions and replicates
+samples = pd.DataFrame({"run": replicates, "condition": conditions}, index=replicates)
 
 # Initialize an empty DataFrame
 df_final = pd.DataFrame()
@@ -30,8 +30,6 @@ for i, file in enumerate(files):
         # Otherwise, merge the new DataFrame with df_final
         df_final = pd.merge(df_final, df, on="gene_id", how="outer")
 
-
-
 # Filter rows based on the sum of values, excluding the 'gene_id' column
 numeric_cols = df_final.columns[1:]  # All columns except 'gene_id'
 df_final[numeric_cols] = df_final[numeric_cols].apply(pd.to_numeric, errors='coerce')
@@ -41,4 +39,4 @@ filtered_df = df_final.loc[df_final[numeric_cols].sum(axis=1) >= min_sum, :]
 # Write the filtered DataFrame to a new file
 filtered_df.to_csv("filtered_merged_file.csv", index=False)
 
-#Final part is actually implementing deseq, need to get out "gene_id""baseMean","log2FoldChange","lfcSE","stat","pvalue","padj" from the csv
+# Final part is actually implementing deseq, need to get out "gene_id", "baseMean", "log2FoldChange", "lfcSE", "stat", "pvalue", "padj" from the dds
