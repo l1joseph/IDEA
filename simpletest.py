@@ -49,11 +49,14 @@ def main():
     # Perform differential expression analysis
     contrast = ('condition', 'A', 'B')
     print("Performing differential expression analysis...")
-    results = deseq(adata, contrast)
+    df_results = results.get_results()
+    print(df_results)
 
-    # Print results
-    print("Differential expression analysis results:")
-    print(results.get_results())
+    print("Plotting Volcano plot...")
+    plotVolcano(df_results)
+
+    print("Plotting heatmap...")
+    plotHeatmap(df_results, adata)
 
 if __name__ == "__main__":
     main()
