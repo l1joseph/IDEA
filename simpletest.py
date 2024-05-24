@@ -30,5 +30,19 @@ def main():
     print("Size Factors:\n", adata.obs['size_factors'])
     print("Normalized Counts:\n", pd.DataFrame(adata.layers['normalized'], index=adata.obs.index, columns=adata.var.index))
 
+    # Estimate dispersions
+    estimate_dispersions(adata)
+    
+    # Fit dispersion trend
+    fit_dispersion_trend(adata)
+    
+    # Shrink dispersions
+    shrink_dispersions(adata)
+    
+    # Print results
+    print("Raw Dispersions:\n", adata.var['dispersion'])
+    print("Fitted Dispersions:\n", adata.var['fitted_dispersion'])
+    print("Shrunken Dispersions:\n", adata.var['shrunken_dispersion'])
+
 if __name__ == "__main__":
     main()
