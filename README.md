@@ -15,11 +15,10 @@ IDEA aims to be a Python equivalent to the widely used DESeq2 tool, offering sim
 To install IDEA, you need to have Python 3.11 installed on your system. You can install IDEA using pip:
 
 ```
-#implement this after we finalize package details
+#implement this after we finalize package details and publish to PiPy
 # pip install idea
 
 pip install git+https://github.com/l1joseph/IDEA.git
-# or whatever we go with
 ```
 
 To run the example notebooks as well as development of this package, you will need a conda environment specific to IDEA. We have prodived a yaml file with all the necessary dependencies installed. Run the below commands to activate it.
@@ -31,9 +30,14 @@ conda activate IDEA
 
 IDEA requires the following dependencies:
 
+- AnnData
+- Matplotlib
 - NumPy
 - Pandas
 - SciPy
+- Seaborn
+- Statsmodels
+- System
 - (CONTINUE AS WE ADD MORE REQS)
 
 These dependencies will be automatically installed when you install IDEA using pip.
@@ -51,38 +55,41 @@ To use IDEA, follow these steps:
 2. Load your gene expression data into an IDEADataSet object:
 
    ```python
-   data = IDEADataSet(counts, sample_info)
+   data = idea.IDEADataSet(counts, sample_info)
    ```
+
 3. Convert data into an AnnData object:
 
    ```python
    adata = data.to_anndata()
    ```
+
 4. Normalize data:
 
    ```python
-   size_factors(adata)
-   normalize_counts(adata)
+   idea.size_factors(adata)
+   idea.normalize_counts(adata)
    ```
+
 5. Estimate dispersions:
 
    ```python
-   estimate_dispersions(adata)
-   fit_dispersion_trend(adata)
-   shrink_dispersions(adata)
+   idea.estimate_dispersions(adata)
+   idea.fit_dispersion_trend(adata)
+   idea.shrink_dispersions(adata)
    ```
 
 6. Perform differential expression analysis:
 
    ```python
    contrast = ('condition', 'A', 'B')
-   results = idea(adata, contrast)
+   results = idea.runidea(adata, contrast)
    ```
 
 7. Explore the results and visualize the differentially expressed genes:
    ```python
    idea_results = results.get_results()
-   plotVolcano(idea_results, contrast[1], contrast[2])
+   plotVolcano(idea_results)
    plotHeatmap(idea_results, adata)
    ```
 
@@ -91,7 +98,10 @@ For more detailed usage examples and documentation, please refer to the [IDEA Do
 
 ## Examples
 
-We provide a set of example Jupyter notebooks in the `examples/` directory of the project repository. These notebooks demonstrate how to use IDEA for various analysis tasks and provide step-by-step guides.
+We provide a set of example Jupyter notebooks in the `example_notebook` prefix of the notebook name. These notebooks demonstrate how to use IDEA for various analysis tasks and provide step-by-step guides.
+Current example notebooks:
+
+- [Title](example_notebook_Lab4Data.ipynb)
 
 ## Documentation
 
