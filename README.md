@@ -101,7 +101,7 @@ For more detailed usage examples and documentation, please refer to the [IDEA Do
 We provide a set of example Jupyter notebooks in the `example_notebook` prefix of the notebook name. These notebooks demonstrate how to use IDEA for various analysis tasks and provide step-by-step guides.
 Current example notebooks:
 
-- [Title](example_notebook_Lab4Data.ipynb)
+- [example_notebook_Lab4Data.ipynb](example_notebook_Lab4Data.ipynb) (Data Obtained from [High fat diet-induced changes of mouse hepatic transcription and enhancer activity can be reversed by subsequent weight loss *Scientific Reports* 2017](https://www.nature.com/articles/srep40220.pdf))
 
 ## Documentation
 
