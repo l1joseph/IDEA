@@ -14,7 +14,9 @@ setup(
         'statsmodels',
         'scipy',
         'matplotlib',
-        'seaborn'
+        'seaborn', 
+        'scanpy',
+        'batchelor'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
