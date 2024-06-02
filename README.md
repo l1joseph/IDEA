@@ -89,8 +89,9 @@ To use IDEA, follow these steps:
 7. Explore the results and visualize the differentially expressed genes:
    ```python
    idea_results = results.get_results()
-   plotVolcano(idea_results)
-   plotHeatmap(idea_results, adata)
+   idea_results_mapped = idea.map_ensembl_to_gene_name(idea_results, 'path_to_file_with_gene_names')
+   idea.plot_volcano(idea_results_mapped)
+   idea.plot_heatmap(idea_results_mapped, adata)
    ```
 
 For more detailed usage examples and documentation, please refer to the [IDEA Documentation](https://idea.readthedocs.io/).
