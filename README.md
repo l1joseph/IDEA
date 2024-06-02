@@ -21,7 +21,7 @@ To install IDEA, you need to have Python 3.11 installed on your system. You can 
 pip install git+https://github.com/l1joseph/IDEA.git
 ```
 
-To run the example notebooks as well as development of this package, you will need a conda environment specific to IDEA. We have prodived a yaml file with all the necessary dependencies installed. Run the below commands to activate it.
+To run the example notebooks as well as development of this package, you will need a conda environment specific to IDEA. We have provided a yaml file with all the necessary dependencies installed. Run the below commands to activate it.
 
 ```
 conda env create -f IDEA.yaml
