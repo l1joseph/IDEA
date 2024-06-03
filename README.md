@@ -102,7 +102,7 @@ Current example notebooks:
 
 If you have any questions, suggestions, or issues, please feel free to contact us:
 
-- Gavin Simmons [gasimmons](mailto:gasimmons@ucsd.edu)
+- Gavin Simmons [gasimmons@ucsd.edu](mailto:gasimmons@ucsd.edu)
 - Leo Joseph [l1joseph@ucsd.edu](mailto:l1joseph@ucsd.edu)
 - Gayathri Donepudi [gdonepudi@ucsd.edu](mailto:gdonepudi@ucsd.edu)
 
