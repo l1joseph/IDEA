@@ -15,9 +15,6 @@ IDEA aims to be a Python equivalent to the widely used DESeq2 tool, offering sim
 To install IDEA, you need to have Python 3.11 installed on your system. You can install IDEA using pip:
 
 ```
-#implement this after we finalize package details and publish to PiPy
-# pip install idea
-
 pip install git+https://github.com/l1joseph/IDEA.git
 ```
 
@@ -38,7 +35,6 @@ IDEA requires the following dependencies:
 - Seaborn
 - Statsmodels
 - System
-- (CONTINUE AS WE ADD MORE REQS)
 
 These dependencies will be automatically installed when you install IDEA using pip.
 
@@ -94,9 +90,6 @@ To use IDEA, follow these steps:
    idea.plot_heatmap(idea_results_mapped, adata)
    ```
 
-For more detailed usage examples and documentation, please refer to the [IDEA Documentation](https://idea.readthedocs.io/).
-(NO CLUE IF WE'RE GOING TO DO THIS)
-
 ## Examples
 
 We provide a set of example Jupyter notebooks in the `example_notebook` prefix of the notebook name. These notebooks demonstrate how to use IDEA for various analysis tasks and provide step-by-step guides.
@@ -104,25 +97,6 @@ Current example notebooks:
 
 - [example_notebook_Lab4Data.ipynb](example_notebook_Lab4Data.ipynb) (Data Obtained from [High fat diet-induced changes of mouse hepatic transcription and enhancer activity can be reversed by subsequent weight loss *Scientific Reports* 2017](https://www.nature.com/articles/srep40220.pdf))
 
-## Documentation
-
-The complete documentation for IDEA can be found at [https://idea.readthedocs.io/](https://idea.readthedocs.io/). It includes API references, user guides, and tutorials.
-(NO CLUE IF WE'RE GOING TO DO THIS)
-
-## Contributing
-
-We welcome contributions to IDEA! If you would like to contribute, please follow these guidelines:
-
-1. Fork the repository and create a new branch for your feature or bug fix.
-2. Write clear and concise commit messages.
-3. Submit a pull request describing your changes and their purpose.
-
-For more detailed information, please refer to our [Contributing Guide](CONTRIBUTING.md).
-
-## License
-
-(I HAVEN'T SET A LICENSE FOR THIS WHEN I INIT THE REPO, DON'T KNOW IF WE HAVE TO)
-IDEA is distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
@@ -134,9 +108,6 @@ If you have any questions, suggestions, or issues, please feel free to contact u
 
 You can also open an issue on the project's GitHub repository.
 
-## Acknowledgements
-
-(ADD ACKNOWLEDGEMENTS HERE)
 
 ## Future Plans
 
