@@ -42,4 +42,5 @@ dependencies:
       - six==1.16.0
       - statsmodels==0.14.2
       - tzdata==2024.1
+      - jupyter
       - git+https://github.com/l1joseph/IDEA.git
